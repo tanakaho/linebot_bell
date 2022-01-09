@@ -1,7 +1,6 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "@line/bot-sdk": "^7.4.0",
@@ -22,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/tanakaho/linebot_bell/issues"
   },
-  "homepage": "https://github.com/tanakaho/linebot_bell#readme"
+  "homepage": "https://github.com/tanakaho/linebot_bell#readme",
+  "description": ""
 }
