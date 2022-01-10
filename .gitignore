@@ -2,5 +2,3 @@ npm-debug.log
 node_modules
 python_modules
 .env
-package-lock.json
-package.json
