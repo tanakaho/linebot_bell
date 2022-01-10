@@ -1,8 +1,11 @@
 {
-  "name": "linebot_hew3",
+  "name": "app",
   "version": "1.0.0",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@line/bot-sdk": "^7.4.0",
+    "express": "^4.17.2"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
