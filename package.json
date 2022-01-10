@@ -1,7 +1,6 @@
 {
   "name": "linebot_hew3",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {},
@@ -19,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/tanakaho/linebot_bell/issues"
   },
-  "homepage": "https://github.com/tanakaho/linebot_bell#readme"
+  "homepage": "https://github.com/tanakaho/linebot_bell#readme",
+  "description": ""
 }
