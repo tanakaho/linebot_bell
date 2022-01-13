@@ -21,9 +21,11 @@ const line_config = {
 };
 
 // リッチメニュー
+const richmenu_image = require('./richmenus/image_upload');
 const richmenu_function = require('./richmenus/richmenu.js');
 richmenu_function.richmenu_make();
-richmenu_function.richmenu_image();
+richmenu_image.richmenu_image();
+richmenu_function.richmenu_defult();
 
 // webサーバー設定
 server.listen(process.env.PORT || 80);

@@ -47,54 +47,19 @@ exports.richmenu_make = () => {
 }
 
 
-
-// リッチメニューの画像アップロード
-exports.richmenu_image = () => {
-    app.post("/webhook", function(req, res) {
-        res.send("HTTP POST request sent to the webhook URL!")
-        const richimage = client.setRichMenuImage(richMenuId, fs.createReadStream('./richImage.png'))
-        // リクエストヘッダー
-        const headers = {
-            "Content-Type": "image/png",
-            "Authorization": "Bearer " + client
-        };
-        // リクエストに渡すオプション
-        const webhookOptions = {
-            "hostname": "api-data.line.me",
-            "path": "/v2/bot/richmenu/"+ richMenuId +"/content",
-            "method": headers,
-            "body": richimage
-        };
-        // リクエストの定義
-        const request = https.request(webhookOptions, (res) => {
-            res.on("data", (d) => {
-                process.stdout.write(d)
-            });
-        });
-        // エラーハンドリング
-        request.on("error", (err) => {
-            console.error(err)
-        });
-        // データを送信
-        request.write(dataString);
-        request.end();
-    });
-}
-
 // デフォルトに設定
 exports.richmenu_defult = () => {
     app.post("/webhook", function(req, res) {
         res.send("HTTP POST request sent to the webhook URL!")
-        const richmanu_def = client.setDefaultRichMenu('')
+        const richmanu_def = client.setDefaultRichMenu(richMenuId);
         // リクエストヘッダー
         const headers = {
-            "Content-Type": "image/png",
             "Authorization": "Bearer " + client
         };
         // リクエストに渡すオプション
         const webhookOptions = {
-            "hostname": "api-data.line.me",
-            "path": "/v2/bot/richmenu/"+ richMenuId +"/content",
+            "hostname": "api.line.me",
+            "path": "/v2/bot/user/all/richmenu/" + richMenuId,
             "method": headers,
             "body": richimage
         };
