@@ -22,6 +22,8 @@ const line_config = {
 
 // リッチメニュー
 const richmenu_function = require('./richmenu.js');
+richmenu_function.richmenu_make();
+richmenu_function.richmenu_image();
 
 // webサーバー設定
 server.listen(process.env.PORT || 80);
