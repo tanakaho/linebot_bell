@@ -21,7 +21,7 @@ const line_config = {
 };
 
 // リッチメニュー
-const richmenu_function = require('./richmenu.js');
+const richmenu_function = require('./richmenus/richmenu.js');
 richmenu_function.richmenu_make();
 richmenu_function.richmenu_image();
 
