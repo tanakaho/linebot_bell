@@ -11,12 +11,17 @@
 // モジュールのインポート
 const server = require("express")();
 const line = require("@line/bot-sdk"); // Messaging APIのSDKをインポート
+const { application } = require("express");
+const { append, json } = require("express/lib/response");
 
 // パラメータ設定
 const line_config = {
     channelAccessToken: process.env.LINE_ACCESS_TOKEN, //環境変数からアクセストークンをセット
     channelSecret: process.env.LINE_CHANNEL_SECRET //環境変数からチャンネルシークレットをセット
 };
+
+// リッチメニュー
+const richmenu_function = require('./richmenu.js');
 
 // webサーバー設定
 server.listen(process.env.PORT || 80);
