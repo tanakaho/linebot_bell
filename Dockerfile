@@ -7,6 +7,7 @@ WORKDIR /app
 # コンテナ内で必要なパッケージをインストール
 COPY package.json .
 RUN npm install
+# RUN install express
 
 # ホスト側カレントディレクトリ内部をコンテナ側にコピー
 COPY . .

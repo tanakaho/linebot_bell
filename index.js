@@ -9,10 +9,16 @@
 //     .update(body).digest('base64');
 
 // モジュールのインポート
-const server = require("express")();
-const line = require("@line/bot-sdk"); // Messaging APIのSDKをインポート
-const { application } = require("express");
-const { append, json } = require("express/lib/response");
+const https = require("https")
+const server = require("express")()
+const line = require("@line/bot-sdk") // Messaging APIのSDKをインポート
+const express = require("express")
+const app = express()
+
+app.use(express.json())
+app.use(express.urlencoded({
+    extended: true
+}))
 
 // パラメータ設定
 const line_config = {
@@ -21,11 +27,15 @@ const line_config = {
 };
 
 // リッチメニュー
-const richmenu_image = require('./richmenus/image_upload');
-const richmenu_function = require('./richmenus/richmenu.js');
-richmenu_function.richmenu_make();
-richmenu_image.richmenu_image();
-richmenu_function.richmenu_defult();
+// const richmenu_image = require('./richmenus/image_upload')
+// const richmenu_function = require('./richmenus/richmenu.js')
+// richmenu_function.richmenu_make()
+// richmenu_image.richmenu_image()
+// richmenu_function.richmenu_defult()
+
+// メッセージ
+const message_function = require('./message/helloword.js')
+message_function.helloword()
 
 // webサーバー設定
 server.listen(process.env.PORT || 80);

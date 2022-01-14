@@ -1,10 +1,11 @@
 const line = require('@line/bot-sdk');
-const { application } = require('express');
-
+const express = require("express")
+const app = express()
 const client = new line.Client({
     channelAccessToken:process.env.LINE_ACCESS_TOKEN
 });
 
+exports.helloword = () => {
 app.post("/webhook", function (req, res) {
     res.send("HTTP POST request sent to the webhook URL!")
     if(req.body.event[0].type === "message") {
@@ -50,3 +51,4 @@ app.post("/webhook", function (req, res) {
         request.end()
     }
 })
+}

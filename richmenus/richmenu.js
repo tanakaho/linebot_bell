@@ -1,8 +1,17 @@
-const line = require('@line/bot-sdk');
+const https = require("https")
+const express = require("express")
+const app = express()
+const PORT = process.env.PORT || 80
+const line = require('@line/bot-sdk')
 
 const client = new line.Client({
     channelAccessToken:process.env.LINE_ACCESS_TOKEN
-});
+})
+
+app.use(express.json())
+app.use(express.urlencoded({
+    extended: true
+}))
 
 // リッチメニュー作成
 exports.richmenu_make = () => {
