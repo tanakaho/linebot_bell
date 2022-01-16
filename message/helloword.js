@@ -1,12 +1,28 @@
-const line = require('@line/bot-sdk');
+const https = require("https")
+// const line = require('@line/bot-sdk')
 const express = require("express")
 const app = express()
+app.listen(process.env.PORT || 3000)
 const client = new line.Client({
     channelAccessToken:process.env.LINE_ACCESS_TOKEN
 });
 
+const line_config = {
+    channelAccessToken: process.env.LINE_ACCESS_TOKEN, //環境変数からアクセストークンをセット
+    channelSecret: process.env.LINE_CHANNEL_SECRET //環境変数からチャンネルシークレットをセット
+};
+
+app.use(express.json())
+app.use(express.urlencoded({
+    extended: true
+}))
+
+app.get("/", (req, res) => {
+    res.sendStatus(200)
+    })
+
 exports.helloword = () => {
-app.post("/webhook", function (req, res) {
+app.post("/bot/webhook", function (req, res) {
     res.send("HTTP POST request sent to the webhook URL!")
     if(req.body.event[0].type === "message") {
         //文字列化したメッセージデータ
@@ -52,3 +68,8 @@ app.post("/webhook", function (req, res) {
     }
 })
 }
+
+app.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
+    res.sendStatus(200);
+    console.log(req.body);
+});
